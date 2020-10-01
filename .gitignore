@@ -1,0 +1,4 @@
+*.pyc
+db.sqlite3
+*/migrations/
+web_project/no_public_key.py
