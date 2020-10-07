@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% block title %}<title>Predeterminado</title>{% endblock %}
-</head>
+{% extends 'base/base.html' %}
+{% block title %}Contacto{% endblock %}
 
-<body>
-	<h1>Contacto</h1>
-	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, similique, debitis! Architecto quia laboriosam reprehenderit commodi ex quidem vero voluptatum animi consectetur, optio cumque, minus amet placeat corporis libero nulla?</p>
-</body>
-</html>
+
+{% block content %}
+
+{% load static %}
+
+	<!-- Message -->
+	<section class="page-section cta">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-9 mx-auto">
+					<div class="cta-inner text-center rounded">
+						<h2 class="section-heading mb-4">
+							<span class="section-heading-upper">Contacta con nosotros</span>
+						</h2>
+						<p class="mb-0">Por favor completa este formulario.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock content %}
