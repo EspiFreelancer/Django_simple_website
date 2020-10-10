@@ -8,9 +8,6 @@ from django.views.generic import TemplateView
 class Index(TemplateView):
     template_name = "web_app/index.html"
 
-class Servicios(TemplateView):
-    template_name = "web_app/servicios.html"
-
 class Tienda(TemplateView):
     template_name = "web_app/tienda.html"
 
@@ -19,10 +16,3 @@ class Blog(TemplateView):
 
 class Contacto(TemplateView):
     template_name = "web_app/contacto.html"
-
-
-
-# def index(request):
-# 	context = {}
-# 	# return render(request, 'index.html', context,)
-# 	return HttpResponse("Index Page")

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 # Added application
 INSTALLED_APPS +=[
     'web_app.apps.WebAppConfig',
+    'services_app.apps.ServicesAppConfig',
 ]
 
 MIDDLEWARE = [

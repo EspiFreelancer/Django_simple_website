@@ -31,7 +31,8 @@ urlpatterns = [
 
 # Web_App URLconf
 urlpatterns += [
-	path('', include('web_app.urls')),
+	path('', include('web_app.urls', namespace='web')),
+    path('', include('services_app.urls', namespace='services')),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)
