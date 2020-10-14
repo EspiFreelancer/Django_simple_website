@@ -29,11 +29,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-# Web_App URLconf
+# Apps URLconf 
 urlpatterns += [
 	path('', include('web_app.urls', namespace='web')),
     path('', include('services_app.urls', namespace='services')),
 ]
+
+
+# Media mapping
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Use static() to add url mapping to serve static files during development (only)
 if settings.DEBUG is True:
