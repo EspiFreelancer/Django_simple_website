@@ -31,8 +31,8 @@ urlpatterns = [
 
 # Apps URLconf 
 urlpatterns += [
-	path('', include('web_app.urls', namespace='web')),
-    path('', include('services_app.urls', namespace='services')),
+	path('', include('apps.web_app.urls', namespace='web')),
+    path('', include('apps.services_app.urls', namespace='services')),
 ]
 
 
