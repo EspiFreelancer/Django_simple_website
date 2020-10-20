@@ -33,6 +33,7 @@ urlpatterns = [
 urlpatterns += [
 	path('', include('apps.web_app.urls', namespace='web')),
     path('', include('apps.services_app.urls', namespace='services')),
+    path('', include('apps.blog_app.urls', namespace='blog')),
 ]
 
 

@@ -11,8 +11,5 @@ class Index(TemplateView):
 class Tienda(TemplateView):
     template_name = "web_app/tienda.html"
 
-class Blog(TemplateView):
-    template_name = "web_app/blog.html"
-
 class Contacto(TemplateView):
     template_name = "web_app/contacto.html"
