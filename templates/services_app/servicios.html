@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% block title %}Contacto{% endblock %}
+{% block title %}Servicios{% endblock %}
 
 
 {% block content %}
@@ -10,14 +10,29 @@
 	<section class="page-section cta">
 		<div class="container">
 			<div class="row">
+
+				{% if object_list %}
+
+				{% for service in object_list %}
+
 				<div class="col-xl-9 mx-auto">
 					<div class="cta-inner text-center rounded">
+
+							
 						<h2 class="section-heading mb-4">
-							<span class="section-heading-upper">Contacta con nosotros</span>
+							<span class="section-heading-upper">{{ service.title }}</span>
 						</h2>
-						<p class="mb-0">Servicios que ofrecemos.</p>
+						<p class="mb-0">{{ service.content }}</p>
+						<p><img src="{{ service.image.url }}" alt="{{ service.title }}"></p>
+						
+
 					</div>
 				</div>
+
+				{% endfor %}
+					
+				{% endif %}
+
 			</div>
 		</div>
 	</section>
