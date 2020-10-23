@@ -7,7 +7,21 @@
 {% load static %}
 
 	<!-- Message -->
+
 	<section class="page-section cta">
+		<div class="container">
+			<div class="row">
+				<p>
+					{% if object_list %}
+						{% for post in object_list %}
+							{% for category in post.category.all %}
+								{{ category }}
+							{% endfor %}
+						{% endfor %}
+					{% endif %}
+				</p>
+			</div>
+		</div>
 		<div class="container">
 			<div class="row">
 
@@ -15,18 +29,25 @@
 
 				{% for post in object_list %}
 
-
 				<section class="page-section clearfix">
 					<div class="container">
 						<div class="intro">
 							<div class="cta-inner text-center rounded">
+								{% if  post.image %}
+								<img class="img-fluid mb-3 mb-lg-0 rounded" src="{{ post.image.url }}" alt="{{ post.title }}">
+								{% endif %}
 								<h2 class="section-heading mb-4" >
-									{% if  post.image %}
-									<img class="img-fluid mb-3 mb-lg-0 rounded" src="{{ post.image.url }}" alt="{{ post.title }}">
-									{% endif %}
-									<span class="section-heading-lower">{{ post.title }}</span>
-									<p class="mb-0">{{ post.content }}</p>
+									<span class="section-heading-upper">{{ post.title }}</span>
 								</h2>
+								<ul class='list-unstyled'>
+									<li>Autor: {{ post.author }} </li>
+									<li> Categoria:
+										{% for category in post.category.all %}
+											{{ category }}
+										{% endfor %}
+									</li>
+									<p class="mb-0">{{ post.content }}</p>
+								</ul>
 							</div>
 						</div>
 					</div>
