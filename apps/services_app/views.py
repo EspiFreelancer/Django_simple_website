@@ -6,7 +6,7 @@ from .models import Services
 
 # Create your views here.
 
-class Servicio(ListView):
+class ServiceList(ListView):
     """
     Services list CBV 
     """
