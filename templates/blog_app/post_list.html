@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+{% block title %}Lista de post por categoría{% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+
+	<!-- Message -->
+
+	<section class="page-section cta">
+		<div class="container">
+
+		</div>
+		<div class="container">
+			<div class="row">
+
+				{% if posts %}
+
+				{% for post in posts %}
+
+				<section class="page-section clearfix">
+					<div class="container">
+						<div class="intro">
+							<div class="cta-inner text-center rounded">
+								{% if  post.image %}
+								<img class="img-fluid mb-3 mb-lg-0 rounded" src="{{ post.image.url }}" alt="{{ post.title }}">
+								{% endif %}
+								<h2 class="section-heading mb-4" >
+									<span class="section-heading-upper">{{ post.title }}</span>
+								</h2>
+								<ul class='list-unstyled'>
+									<li>Autor: {{ post.author }} </li>
+									<li> Categoria:
+										{% for category in post.category.all %}
+											{{ category }}
+										{% endfor %}
+									</li>
+									<p class="mb-0">{{ post.content }}</p>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+				{% endfor %}
+					
+				{% endif %}
+
+			</div>
+		</div>
+	</section>
+
+{% endblock content %}
