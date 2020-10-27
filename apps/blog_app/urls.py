@@ -20,5 +20,5 @@ app_name = 'blog'
 
 urlpatterns = [
     path('blog/', BlogList.as_view(), name='blog'),
-    path('category/<int:id>', category, name='categorys'),
+    path('blog/category/<int:id>', category, name='categorys'),
 ]
