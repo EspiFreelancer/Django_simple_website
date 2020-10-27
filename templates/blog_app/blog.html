@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% block title %}Contacto{% endblock %}
+{% block title %}Blog{% endblock %}
 
 
 {% block content %}
@@ -9,19 +9,6 @@
 	<!-- Message -->
 
 	<section class="page-section cta">
-		<div class="container">
-			<div class="row">
-				<p>
-					{% if object_list %}
-						{% for post in object_list %}
-							{% for category in post.category.all %}
-								{{ category }}
-							{% endfor %}
-						{% endfor %}
-					{% endif %}
-				</p>
-			</div>
-		</div>
 		<div class="container">
 			<div class="row">
 
@@ -37,25 +24,42 @@
 								<img class="img-fluid mb-3 mb-lg-0 rounded" src="{{ post.image.url }}" alt="{{ post.title }}">
 								{% endif %}
 								<h2 class="section-heading mb-4" >
-									<span class="section-heading-upper">{{ post.title }}</span>
+									<span class="section-heading-upper">{{ post.updated|date:"SHORT_DATE_FORMAT"}}</span>
+									<span class="section-heading-lower">{{ post.title }}</span>
+									<span class="mb-0">{{ post.content }}</span>
 								</h2>
-								<ul class='list-unstyled'>
-									<li>Autor: {{ post.author }} </li>
-									<li> Categoria:
-										{% for category in post.category.all %}
-											{{ category }}
-										{% endfor %}
-									</li>
-									<p class="mb-0">{{ post.content }}</p>
-								</ul>
+								<p>
+									<span class="section-heading-under">
+										Autor: <em><b>{{ post.author|title }}</b></em>
+										Categoria:
+										<em>
+											{% for category in post.categories.all %}
+												{% if not forloop.first %}
+													{% if forloop.last %}
+														<a href="{% url 'blog:category' category.id %}" class="link">
+														y {{ category.name }}
+														</a>
+													{% else %}
+														<a href="{% url 'blog:category' category.id %}" class="link">
+														, {{ category.name }}
+														</a>
+													{% endif %}
+												{% else %} 
+													<a href="{% url 'blog:category' category.id %}" class="link">
+													{{ category.name }}
+													</a>
+												{% endif %}
+											{% endfor %}
+										</em>
+									</span>
+								</p>
 							</div>
 						</div>
 					</div>
 				</section>
 
-
 				{% endfor %}
-					
+
 				{% endif %}
 
 			</div>

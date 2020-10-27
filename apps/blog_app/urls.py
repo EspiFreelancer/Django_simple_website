@@ -19,6 +19,6 @@ from .views import BlogList, category
 app_name = 'blog'
 
 urlpatterns = [
-    path('blog/', BlogList.as_view(), name='blog'),
-    path('blog/category/<int:id>', category, name='categorys'),
+    path('', BlogList.as_view(), name='blog'),
+    path('category/<int:category_id>', category, name='category'),
 ]
