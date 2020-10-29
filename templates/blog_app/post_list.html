@@ -24,9 +24,9 @@
 								<img class="img-fluid mb-3 mb-lg-0 rounded" src="{{ post.image.url }}" alt="{{ post.title }}">
 								{% endif %}
 								<h2 class="section-heading mb-4" >
-									<span class="section-heading-upper">{{ post.updated|date:"SHORT_DATE_FORMAT"}}</span>
+									<span class="section-heading-upper">{{ post.published|date:"SHORT_DATE_FORMAT"}}</span>
 										<span class="section-heading-lower">{{ post.title }}</span>
-									<span class="mb-0">{{ post.content }}</span>
+									<span class="mb-0">{{ post.subtitle }}</span>
 								</h2>
 								<p>
 									<span class="section-heading-under">
