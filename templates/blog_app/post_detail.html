@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% block title %}Blog{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
 
 
 {% block content %}
@@ -12,9 +12,7 @@
 		<div class="container">
 			<div class="row">
 
-				{% if object_list %}
-
-				{% for post in object_list %}
+				{% if post %}
 
 				<section class="page-section clearfix">
 					<div class="container">
@@ -25,10 +23,7 @@
 								{% endif %}
 								<h2 class="section-heading mb-4" >
 									<span class="section-heading-upper">{{ post.published|date:"SHORT_DATE_FORMAT"}}</span>
-									<a href="{% url 'blog:detail' url=post.slug %}">
 									<span class="section-heading-lower">{{ post.title }}</span>
-									</a>
-									<span class="mb-0">{{ post.subtitle }}</span>
 								</h2>
 								<p>
 									<span class="section-heading-under">
@@ -55,12 +50,17 @@
 										</em>
 									</span>
 								</p>
+								<h4 class="mb-0 mbt">
+									{{ post.subtitle }}
+								</h4>
+								<br>
+								<p class="text-justify">
+									{{ post.content|linebreaks }}
+								</p>
 							</div>
 						</div>
 					</div>
 				</section>
-
-				{% endfor %}
 
 				{% endif %}
 

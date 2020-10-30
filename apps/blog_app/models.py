@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from django.utils.timezone import now
 from django.contrib.auth.models import User
 
@@ -26,6 +27,8 @@ class Post(models.Model):
     published = models.DateTimeField(default=now, verbose_name="Fecha de publicación")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de edición")
+    slug = models.SlugField(max_length=50, unique=True, blank=True,
+        help_text = "Opcional. Nombre de articulo mostrado en la barra de navegación.")
 
     def __str__(self):
         return self.title
@@ -34,3 +37,7 @@ class Post(models.Model):
         verbose_name = "artículo"
         verbose_name_plural = "artículos"
         ordering = ['-created']
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
