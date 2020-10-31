@@ -17,6 +17,8 @@
 	<!-- Bootstrap -->
 	<link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
+	<link href="{% static '/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
@@ -81,27 +83,36 @@
 
 	<!-- Footer -->
 	<footer class="footer text-faded text-center py-5">
-		<div class="container">
+		<!-- Social networks -->
+	    <div class="container">
 			<p class="m-0">
-				<a href="#" class="link">
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-circle fa-stack-2x"></i>
-						<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-				<a href="#" class="link">
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-circle fa-stack-2x"></i>
-						<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-				<a href="#" class="link">
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-circle fa-stack-2x"></i>
-						<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
+			    {% if LINK_FACEBOOK %}
+			    <a href="{{LINK_FACEBOOK}}" class="link">
+			        <span class="fa-stack fa-lg">
+			        <i class="fa fa-circle fa-stack-2x"></i>
+			        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+			        </span>
+			    </a>
+			    {% endif %}
+			    {% if LINK_INSTAGRAM %}
+			    <a href="{{LINK_INSTAGRAM}}" class="link">
+			        <span class="fa-stack fa-lg">
+			        <i class="fa fa-circle fa-stack-2x"></i>
+			        <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+			        </span>
+			    </a>
+			    {% endif %}
+			    {% if LINK_TWITTER %}
+			    <a href="{{LINK_TWITTER}}" class="link">
+			        <span class="fa-stack fa-lg">
+			        <i class="fa fa-circle fa-stack-2x"></i>
+			        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+			        </span>
+			    </a>
+			    {% endif %}
 			</p>
+	    </div>
+	    <div class="container">
 			<p class="m-0 mbt">
 				<a href="sample.html" class="link">Política de privacidad</a> ·
 				<a href="sample.html" class="link">Aviso legal</a> ·
