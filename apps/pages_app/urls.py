@@ -18,5 +18,5 @@ from .views import generic_page
 app_name = 'page'
 
 urlpatterns = [
-    path('<int:page_id>/', generic_page, name='page'),
+    path('<int:page_id>/<slug:page_slug>/', generic_page, name='page'),
 ]

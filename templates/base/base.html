@@ -113,12 +113,12 @@
 			</p>
 	    </div>
 	    <div class="container">
-			<p class="m-0 mbt">
-				<a href="sample.html" class="link">Política de privacidad</a> ·
-				<a href="sample.html" class="link">Aviso legal</a> ·
-				<a href="sample.html" class="link">Cookies</a>
-			</p>
-			<p class="m-0 mbt1">&copy; Gestión de Pedidos 2021</p>
+			{% load pages_extras %}
+			{% get_page_list as page_list %}
+			{% for page in page_list %}
+			    <a href="{% url 'page:page' page.id page.title|slugify %}" class="link">{{page.title}}</a> 
+			    {% if not forloop.last %}·{% endif %} 
+			{% endfor %}
 		</div>
 	</footer>
 
