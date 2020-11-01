@@ -46,7 +46,8 @@ INSTALLED_APPS +=[
     'apps.web_app.apps.WebAppConfig',
     'apps.services_app.apps.ServicesAppConfig',
     'apps.blog_app.apps.BlogAppConfig',
-    'apps.social_app.apps.SocialAppConfig', 
+    'apps.social_app.apps.SocialAppConfig',
+    'apps.pages_app.apps.PagesAppConfig',
 ]
 
 MIDDLEWARE = [

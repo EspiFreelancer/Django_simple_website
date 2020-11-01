@@ -34,6 +34,7 @@ urlpatterns += [
 	path('', include('apps.web_app.urls', namespace='web')),
     path('servicios/', include('apps.services_app.urls', namespace='services')),
     path('blog/', include('apps.blog_app.urls', namespace='blog')),
+    path('pagina/', include('apps.pages_app.urls', namespace='page')),
 ]
 
 
