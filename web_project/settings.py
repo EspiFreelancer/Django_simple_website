@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 # Added application
 INSTALLED_APPS +=[
+    'ckeditor',
     'apps.web_app.apps.WebAppConfig',
     'apps.services_app.apps.ServicesAppConfig',
     'apps.blog_app.apps.BlogAppConfig',
@@ -137,3 +138,18 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Ckeditor configuration
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 
+             'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink']
+        ]
+    }
+}

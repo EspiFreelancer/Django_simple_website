@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils.timezone import now
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -20,7 +21,7 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=50, verbose_name="Título")
     subtitle = models.CharField(max_length=200, verbose_name="Subtítulo")
-    content = models.TextField(verbose_name="Contenido")
+    content = RichTextField(verbose_name="Contenido")
     image = models.ImageField(upload_to='blog', null=True, blank=True, verbose_name="Imagen")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category, verbose_name="Categorías", related_name="get_posts")
