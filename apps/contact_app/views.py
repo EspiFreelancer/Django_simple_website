@@ -1,3 +1,6 @@
+
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
 
@@ -15,14 +18,25 @@ class ContactView(TemplateView):
         return context
 
     def post(self, request, *args, **kwargs):
-    	name = request.POST.get('name')
-    	email = request.POST.get('email')
-    	message = request.POST.get('message')
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
 
-    	print('===================')
-    	print(name)
-    	print(email)
-    	print(message)
-    	print('===================')
+        body = render_to_string(
+            'contact_app/email_content.html', {
+            'name': name,
+            'email': email,
+            'message': message,
+            },
+        )
 
-    	return redirect('web:index')
+        email_message = EmailMessage(
+            subject='Mensaje de usuario',
+            body= body,
+            from_email=email,
+            to=['email.de.prueba@gmail.com'],
+        )
+        email_message.content_subtype = 'html'
+        email_message.send()
+
+        return redirect('contact:contact')
