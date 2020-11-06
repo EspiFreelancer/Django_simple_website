@@ -8,5 +8,5 @@ from django.views.generic import TemplateView
 class Index(TemplateView):
     template_name = "web_app/index.html"
 
-class Tienda(TemplateView):
-    template_name = "web_app/tienda.html"
+class Ubication(TemplateView):
+    template_name = "web_app/ubication.html"

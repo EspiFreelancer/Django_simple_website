@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% block title %}Oficinas{% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+
+<!-- Message -->
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner text-center">
+                    <h2 class="section-heading mb-5">
+                        <span class="section-heading-upper">Nuestras Oficinas</span>
+                        <span class="section-heading-lower">Te Esperamos</span>
+                    </h2>
+                    <ul class="list-unstyled list-hours text-left mx-auto mb-5">
+                        <li class="list-unstyled-item list-hours-item d-flex">
+                            Lunes a sábados
+                            <span class="ml-auto">7:00 a 21:00</span>
+                        </li>
+                    </ul>
+                    <p class="address mb-5">
+                        <em>
+                            <strong>Avenida Siempre Viva Nº 38</strong>
+                            <br>
+                            Springfield
+                        </em>
+                    </p>
+                    <p class="mb-0">
+                        <small>
+                            <em>Nuestro teléfono</em>
+                        </small>
+                        <br>
+                        +54 (244) 4-627935
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
