@@ -10,7 +10,7 @@
 	<meta name="description" content="Simple Django-Web">
 	<meta name="author" content="EspiFreelancer">
 
-	<title>{% block title %}Block Empresa{% endblock title %}</title>
+	<title>{% block title %}Gestión de Pedidos{% endblock title %}</title>
 
 	<link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}" />
 
@@ -35,7 +35,9 @@
 	{% block header %}
 	<!-- Header -->
 	<h1 class="site-heading text-center text-white d-none d-lg-block">
+		<a class="nav-link text-uppercase text-expanded" href="{% url 'web:index' %}">
 		<span class="site-heading-lower">Gestión de Pedidos</span>
+		</a>
 	</h1>
 	{% endblock header %}
 
@@ -44,7 +46,7 @@
 	<!-- Navbar -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="home.html">Gestión de Pedidos</a>
+			<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'web:index' %}">Gestión de Pedidos</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
